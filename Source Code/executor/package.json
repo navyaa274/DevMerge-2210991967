@@ -1,0 +1,14 @@
+{
+    "name": "devmerge-executor",
+    "version": "1.0.0",
+    "description": "Local Docker Code Executor",
+    "main": "server.js",
+    "dependencies": {
+        "devmerge-executor": "file:",
+        "express": "^4.18.2",
+        "uuid": "^9.0.0"
+    },
+    "scripts": {
+        "start": "node server.js"
+    }
+}

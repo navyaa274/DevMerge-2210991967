@@ -1,0 +1,601 @@
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:14:27.907Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:14:28.663Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:14:28.663Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:14:28.663Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:14:28.664Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:14:28.664Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:14:29.388Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:14:32.075Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:14:32.514Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:14:32.514Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:14:32.515Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:14:32.515Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:14:32.515Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:14:33.268Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:14:41.473Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:14:42.096Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:14:42.096Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:14:42.096Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:14:42.097Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:14:42.097Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:14:42.557Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:14:42.726Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:14:42.998Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:14:42.998Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:14:42.999Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:14:42.999Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:14:42.999Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:14:43.427Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:15:33.681Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:15:34.273Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:15:34.274Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:15:34.274Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:15:34.274Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:15:34.274Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:15:34.681Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:16:04.826Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:16:05.340Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:16:05.340Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:16:05.340Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:16:05.341Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:16:05.341Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:16:05.850Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:16:13.583Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:16:14.201Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:16:14.201Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:16:14.202Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:16:14.202Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:16:14.202Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:16:14.646Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:28:26.884Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:28:27.539Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:28:27.540Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:28:27.540Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:28:27.540Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:28:27.541Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:28:28.221Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:33:34.444Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:33:35.168Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:33:35.168Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:33:35.169Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:33:35.169Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:33:35.170Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:33:35.895Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:34:41.604Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:34:42.222Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:34:42.222Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:34:42.223Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:34:42.223Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:34:42.224Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:34:42.989Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:44:26.483Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:44:27.280Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:44:27.281Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:44:27.282Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:44:27.282Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:44:27.282Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:44:28.670Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:47:43.022Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:47:44.630Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:47:44.631Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:47:44.631Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:47:44.632Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:47:44.632Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:47:45.842Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:51:02.676Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:51:03.328Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:51:03.329Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:51:03.329Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:51:03.329Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:51:03.330Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:51:04.587Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:51:10.979Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:51:11.541Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:51:11.541Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:51:11.542Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:51:11.542Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:51:11.542Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:51:12.712Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:51:57.879Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:51:58.398Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:51:58.398Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:51:58.398Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:51:58.398Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:51:58.399Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:52:00.238Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:52:43.436Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:52:44.051Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:52:44.051Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:52:44.052Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:52:44.052Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:52:44.052Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:52:45.222Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:53:49.947Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:53:50.504Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:53:50.505Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:53:50.506Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:53:50.507Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:53:50.507Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:53:51.667Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:56:56.591Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:56:57.148Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:56:57.148Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:56:57.148Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:56:57.149Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:56:57.149Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:56:58.359Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T11:59:42.240Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T11:59:42.870Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T11:59:42.871Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T11:59:42.871Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T11:59:42.872Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T11:59:42.872Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T11:59:44.459Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T12:00:51.228Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T12:00:51.911Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T12:00:51.912Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T12:00:51.912Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T12:00:51.912Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T12:00:51.913Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T12:00:53.106Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T12:08:46.177Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T12:08:48.696Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T12:08:49.246Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T12:08:49.247Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T12:08:49.247Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T12:08:49.247Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T12:08:49.248Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T12:08:50.561Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T12:08:59.025Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T12:08:59.561Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T12:08:59.562Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T12:08:59.562Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T12:08:59.562Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T12:08:59.563Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T12:09:00.830Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T12:09:59.031Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T12:09:59.667Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T12:09:59.667Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T12:09:59.667Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T12:09:59.668Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T12:09:59.668Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T12:10:00.968Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T12:10:45.660Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T12:10:46.345Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T12:10:46.346Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T12:10:46.347Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T12:10:46.348Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T12:10:46.349Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T12:10:47.552Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-04T12:14:05.068Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-04T12:14:05.793Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-04T12:14:05.794Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-04T12:14:05.795Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-04T12:14:05.796Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-04T12:14:05.797Z"}
+{"level":"info","message":"✅ Database indexes created successfully","timestamp":"2026-03-04T12:14:07.003Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-05T00:22:01.832Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-05T00:22:02.391Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-05T00:22:02.391Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-05T00:22:02.391Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-05T00:22:02.392Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-05T00:22:02.392Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-05T00:22:03.036Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-05T00:22:03.090Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-05T00:22:03.146Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-05T00:22:03.202Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-05T00:22:03.258Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-05T00:22:03.315Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-05T00:22:59.758Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-05T00:23:00.503Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-05T00:23:00.504Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-05T00:23:00.504Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-05T00:23:00.505Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-05T00:23:00.505Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-05T00:23:01.191Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-05T00:23:01.250Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-05T00:23:01.311Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-05T00:23:01.379Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-05T00:23:01.441Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-05T00:23:01.503Z"}
+{"level":"info","message":"🎉 Database index optimization process completed","timestamp":"2026-03-05T00:23:01.503Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-05T01:11:16.242Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-05T01:11:16.892Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-05T01:11:16.892Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-05T01:11:16.893Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-05T01:11:16.893Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-05T01:11:16.894Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-05T01:11:17.605Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-05T01:11:17.672Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-05T01:11:17.733Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-05T01:11:17.792Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-05T01:11:17.851Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-05T01:11:17.911Z"}
+{"level":"info","message":"🎉 Database index optimization process completed","timestamp":"2026-03-05T01:11:17.912Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-05T12:39:38.403Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-05T12:39:39.716Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-05T12:39:39.718Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-05T12:39:39.720Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-05T12:39:39.720Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-05T12:39:39.721Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-05T12:39:40.731Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-05T12:39:40.809Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-05T12:39:40.885Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-05T12:39:40.969Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-05T12:39:41.050Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-05T12:39:41.403Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-05T12:40:46.227Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-05T12:40:46.873Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-05T12:40:46.874Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-05T12:40:46.874Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-05T12:40:46.875Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-05T12:40:46.875Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-05T12:40:47.781Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-05T12:40:47.871Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-05T12:40:47.942Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-05T12:40:48.012Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-05T12:40:48.088Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-05T12:40:48.165Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-05T12:43:11.603Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-05T12:43:12.589Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-05T12:43:12.590Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-05T12:43:12.590Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-05T12:43:12.590Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-05T12:43:12.591Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-05T12:43:13.519Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-05T12:43:13.594Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-05T12:43:13.666Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-05T12:43:13.739Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-05T12:43:13.815Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-05T12:43:13.888Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-06T20:34:57.954Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-06T20:34:58.557Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-06T20:34:58.558Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-06T20:34:58.562Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-06T20:34:58.574Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-06T20:34:58.579Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-06T20:34:59.316Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-06T20:34:59.376Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-06T20:34:59.448Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-06T20:34:59.506Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-06T20:34:59.570Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-06T20:34:59.631Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-07T22:05:40.736Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-07T22:05:41.164Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-07T22:05:41.164Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-07T22:05:41.164Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-07T22:05:41.165Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-07T22:05:41.165Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-07T22:05:42.046Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-07T22:05:42.107Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-07T22:05:42.169Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-07T22:05:42.230Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-07T22:05:42.305Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-07T22:05:42.370Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T21:35:06.268Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T21:35:06.663Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T21:35:06.664Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T21:35:06.665Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T21:35:06.665Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T21:35:06.666Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T21:35:08.047Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T21:35:08.121Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T21:35:08.178Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T21:35:08.251Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T21:35:08.311Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T21:35:08.364Z"}
+{"level":"info","message":"🎉 Database index optimization process completed","timestamp":"2026-03-09T21:35:08.365Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T21:36:51.732Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T21:36:52.175Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T21:36:52.176Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T21:36:52.176Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T21:36:52.177Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T21:36:52.177Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T21:36:52.948Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T21:36:53.004Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T21:36:53.065Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T21:36:53.119Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T21:36:53.175Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T21:36:53.228Z"}
+{"level":"info","message":"🎉 Database index optimization process completed","timestamp":"2026-03-09T21:36:53.229Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T21:43:10.333Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T21:43:10.766Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T21:43:10.766Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T21:43:10.766Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T21:43:10.767Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T21:43:10.768Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T21:43:11.497Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T21:43:11.555Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T21:43:11.611Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T21:43:11.669Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T21:43:11.727Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T21:43:11.784Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T21:53:00.098Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T21:53:01.663Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T21:53:01.696Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T21:53:01.723Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T21:53:01.799Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T21:53:01.830Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T21:53:02.969Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T21:53:03.058Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T21:53:03.145Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T21:53:03.250Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T21:53:03.341Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T21:53:03.415Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T21:55:11.855Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T21:55:12.283Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T21:55:12.283Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T21:55:12.284Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T21:55:12.285Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T21:55:12.286Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T21:55:13.312Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T21:55:34.911Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T21:55:35.577Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T21:55:35.580Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T21:55:35.599Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T21:55:35.641Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T21:55:35.666Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T21:55:37.099Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T21:55:37.396Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T21:55:37.489Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T21:55:37.626Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T21:55:37.727Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T21:55:37.794Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T21:56:24.556Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T21:56:24.959Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T21:56:24.960Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T21:56:24.961Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T21:56:24.963Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T21:56:24.964Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T21:56:25.746Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T21:56:25.806Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T21:56:25.869Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T21:56:25.927Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T21:56:25.986Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T21:56:26.068Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T21:56:52.465Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T21:56:52.897Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T21:56:52.899Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T21:56:52.899Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T21:56:52.900Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T21:56:52.901Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T21:56:53.690Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T21:56:53.759Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T21:56:53.829Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T21:56:53.897Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T21:56:53.961Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T21:56:54.027Z"}
+{"level":"info","message":"🎉 Database index optimization process completed","timestamp":"2026-03-09T21:56:54.029Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T21:57:14.830Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T21:57:15.438Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T21:57:15.439Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T21:57:15.439Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T21:57:15.439Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T21:57:15.440Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T21:57:16.197Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T21:57:16.258Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T21:57:16.318Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T21:57:16.501Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T21:57:16.562Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T21:57:16.624Z"}
+{"level":"info","message":"🎉 Database index optimization process completed","timestamp":"2026-03-09T21:57:16.625Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T22:01:12.507Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T22:01:12.966Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T22:01:12.975Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T22:01:12.982Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T22:01:12.988Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T22:01:13.002Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T22:01:13.839Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T22:01:13.905Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T22:01:13.963Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T22:01:14.022Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T22:01:14.083Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T22:01:14.159Z"}
+{"level":"info","message":"🎉 Database index optimization process completed","timestamp":"2026-03-09T22:01:14.160Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T22:02:33.779Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T22:02:34.500Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T22:02:34.526Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T22:02:34.565Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T22:02:34.583Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T22:02:34.590Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T22:02:35.667Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T22:02:35.780Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T22:02:35.868Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T22:02:35.937Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T22:02:35.997Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T22:02:36.063Z"}
+{"level":"info","message":"🎉 Database index optimization process completed","timestamp":"2026-03-09T22:02:36.067Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T22:04:01.213Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T22:04:01.687Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T22:04:01.691Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T22:04:01.698Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T22:04:01.702Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T22:04:01.706Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T22:04:08.747Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T22:04:09.239Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T22:04:09.241Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T22:04:09.242Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T22:04:09.243Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T22:04:09.244Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T22:04:10.033Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T22:04:10.091Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T22:04:10.152Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T22:04:10.211Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T22:04:10.373Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T22:04:10.431Z"}
+{"level":"info","message":"🎉 Database index optimization process completed","timestamp":"2026-03-09T22:04:10.435Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T22:10:35.851Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T22:10:36.322Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T22:10:36.329Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T22:10:36.337Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T22:10:36.348Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T22:10:36.357Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T22:10:37.134Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T22:10:37.191Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T22:10:37.249Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T22:10:37.305Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T22:10:37.363Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T22:10:37.424Z"}
+{"level":"info","message":"🎉 Database index optimization process completed","timestamp":"2026-03-09T22:10:37.428Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T23:36:02.113Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T23:36:02.557Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T23:36:02.557Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T23:36:02.558Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T23:36:02.558Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T23:36:02.559Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T23:36:04.226Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T23:36:04.289Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T23:36:04.351Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T23:36:04.414Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T23:36:04.502Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T23:36:04.568Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T23:36:48.014Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T23:36:48.501Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T23:36:48.506Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T23:36:48.508Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T23:36:48.512Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T23:36:48.519Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T23:36:49.310Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T23:36:49.369Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T23:36:49.433Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T23:36:49.502Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T23:36:49.564Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T23:36:49.629Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T23:37:28.712Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T23:37:32.840Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T23:37:33.221Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T23:37:33.227Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T23:37:33.230Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T23:37:33.234Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T23:37:33.239Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T23:37:34.133Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T23:37:34.191Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T23:37:34.272Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T23:37:34.330Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T23:37:34.386Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T23:37:34.444Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T23:38:23.843Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T23:38:24.235Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T23:38:24.236Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T23:38:24.236Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T23:38:24.237Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T23:38:24.237Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T23:38:24.970Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T23:38:25.027Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T23:38:25.083Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T23:38:25.142Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T23:38:25.198Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T23:38:25.259Z"}
+{"level":"info","message":"🎉 Database index optimization process completed","timestamp":"2026-03-09T23:38:25.259Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T23:39:19.585Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T23:39:19.971Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T23:39:19.971Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T23:39:19.972Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T23:39:19.972Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T23:39:19.973Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T23:39:20.727Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T23:39:20.783Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T23:39:20.838Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T23:39:20.894Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T23:39:20.948Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T23:39:21.003Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T23:39:27.648Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T23:39:28.144Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T23:39:28.145Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T23:39:28.147Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T23:39:28.148Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T23:39:28.149Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T23:39:38.645Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T23:39:39.191Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T23:39:39.212Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T23:39:39.234Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T23:39:39.249Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T23:39:39.262Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T23:39:40.168Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T23:39:40.254Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T23:39:40.340Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T23:39:40.403Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T23:39:40.463Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T23:39:40.526Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T23:41:31.924Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T23:41:32.380Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T23:41:32.382Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T23:41:32.385Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T23:41:32.387Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T23:41:32.394Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T23:41:33.265Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T23:41:33.326Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T23:41:33.389Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T23:41:33.514Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T23:41:33.573Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T23:41:33.637Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T23:41:48.722Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T23:41:49.233Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T23:41:49.238Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T23:41:49.243Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T23:41:49.248Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T23:41:49.258Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T23:41:50.106Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T23:41:50.164Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T23:41:50.228Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T23:41:50.289Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T23:41:50.351Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T23:41:50.450Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T23:42:04.701Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T23:42:05.223Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T23:42:05.229Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T23:42:05.237Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T23:42:05.243Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T23:42:05.254Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T23:42:06.076Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T23:42:06.154Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T23:42:06.220Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T23:42:06.433Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T23:42:06.496Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T23:42:06.588Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T23:42:38.766Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T23:42:39.136Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T23:42:39.136Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T23:42:39.137Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T23:42:39.137Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T23:42:39.138Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T23:42:43.749Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T23:42:44.202Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T23:42:44.203Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T23:42:44.204Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T23:42:44.204Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T23:42:44.205Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T23:42:44.974Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T23:42:45.266Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T23:42:45.331Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T23:42:45.388Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T23:42:45.448Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T23:42:45.509Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-09T23:42:55.836Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-09T23:42:56.218Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-09T23:42:56.218Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-09T23:42:56.219Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-09T23:42:56.219Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-09T23:42:56.220Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-09T23:42:57.096Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-09T23:42:57.152Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-09T23:42:57.212Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-09T23:42:57.268Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-09T23:42:57.321Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-09T23:42:57.375Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-11T09:31:40.005Z"}
+{"level":"info","message":"✅ MongoDB connected successfully","timestamp":"2026-03-11T09:31:40.517Z"}
+{"level":"info","message":"📊 Database: project","timestamp":"2026-03-11T09:31:40.517Z"}
+{"level":"info","message":"🌐 Host: cluster0-shard-00-00.7noqj.mongodb.net","timestamp":"2026-03-11T09:31:40.518Z"}
+{"level":"info","message":"🔌 Port: 27017","timestamp":"2026-03-11T09:31:40.518Z"}
+{"level":"info","message":"Creating database indexes...","timestamp":"2026-03-11T09:31:40.518Z"}
+{"level":"info","message":"✅ Indexes created for collection: users","timestamp":"2026-03-11T09:31:41.224Z"}
+{"level":"info","message":"✅ Indexes created for collection: departments","timestamp":"2026-03-11T09:31:41.286Z"}
+{"level":"info","message":"✅ Indexes created for collection: programs","timestamp":"2026-03-11T09:31:41.353Z"}
+{"level":"info","message":"✅ Indexes created for collection: courses","timestamp":"2026-03-11T09:31:41.417Z"}
+{"level":"info","message":"✅ Indexes created for collection: assignments","timestamp":"2026-03-11T09:31:41.476Z"}
+{"level":"info","message":"✅ Indexes created for collection: submissions","timestamp":"2026-03-11T09:31:41.536Z"}
+{"level":"info","message":"🎉 Database index optimization process completed","timestamp":"2026-03-11T09:31:41.537Z"}
+{"level":"info","message":"Attempting to connect to MongoDB...","timestamp":"2026-03-19T11:45:33.996Z"}
+{"code":"ECONNREFUSED","hostname":"_mongodb._tcp.cluster0.7noqj.mongodb.net","level":"error","message":"❌ MongoDB connection failed: querySrv ECONNREFUSED _mongodb._tcp.cluster0.7noqj.mongodb.net","stack":"Error: querySrv ECONNREFUSED _mongodb._tcp.cluster0.7noqj.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17)","syscall":"querySrv","timestamp":"2026-03-19T11:45:34.012Z"}
+{"level":"warn","message":"⚠️ Continuing without MongoDB in development mode","timestamp":"2026-03-19T11:45:34.012Z"}

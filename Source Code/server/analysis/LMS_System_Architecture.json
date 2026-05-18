@@ -1,0 +1,416 @@
+{
+  "entities": [
+    "users",
+    "courses", 
+    "problems",
+    "submissions",
+    "enrollments",
+    "departments",
+    "programs",
+    "semesters",
+    "sections",
+    "assignments",
+    "exams",
+    "notifications",
+    "achievements",
+    "userPoints",
+    "automationLogs",
+    "grade",
+    "attendance",
+    "courseMaterials",
+    "syllabus",
+    "analytics",
+    "reports"
+  ],
+  "relationships": [
+    {
+      "from": "users",
+      "to": "courses", 
+      "type": "enrolled_in",
+      "cardinality": "many-to-many",
+      "through": "enrollments"
+    },
+    {
+      "from": "users",
+      "to": "departments",
+      "type": "belongs_to",
+      "cardinality": "many-to-one"
+    },
+    {
+      "from": "users",
+      "to": "programs",
+      "type": "enrolled_in",
+      "cardinality": "many-to-one"
+    },
+    {
+      "from": "courses",
+      "to": "departments",
+      "type": "belongs_to",
+      "cardinality": "many-to-one"
+    },
+    {
+      "from": "courses",
+      "to": "programs",
+      "type": "part_of",
+      "cardinality": "many-to-one"
+    },
+    {
+      "from": "courses",
+      "to": "problems",
+      "type": "contains",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "courses",
+      "to": "assignments",
+      "type": "has",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "courses",
+      "to": "exams",
+      "type": "has",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "courses",
+      "to": "courseMaterials",
+      "type": "includes",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "problems",
+      "to": "submissions",
+      "type": "receives",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "users",
+      "to": "submissions",
+      "type": "submits",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "users",
+      "to": "achievements",
+      "type": "earns",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "users",
+      "to": "userPoints",
+      "type": "has",
+      "cardinality": "one-to-one"
+    },
+    {
+      "from": "users",
+      "to": "notifications",
+      "type": "receives",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "users",
+      "to": "grade",
+      "type": "receives",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "users",
+      "to": "attendance",
+      "type": "has",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "faculty",
+      "to": "courses",
+      "type": "teaches",
+      "cardinality": "many-to-many"
+    },
+    {
+      "from": "faculty",
+      "to": "submissions",
+      "type": "evaluates",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "faculty",
+      "to": "grade",
+      "type": "assigns",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "admin",
+      "to": "courses",
+      "type": "manages",
+      "cardinality": "many-to-many"
+    },
+    {
+      "from": "admin",
+      "to": "users",
+      "type": "manages",
+      "cardinality": "many-to-many"
+    },
+    {
+      "from": "admin",
+      "to": "automationLogs",
+      "type": "monitors",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "AI_Tutor",
+      "to": "submissions",
+      "type": "analyzes",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "AI_Tutor",
+      "to": "users",
+      "type": "provides_feedback",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "AI_Tutor",
+      "to": "notifications",
+      "type": "generates",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "universal_judge",
+      "to": "submissions",
+      "type": "evaluates",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "registrar_automation",
+      "to": "enrollments",
+      "type": "processes",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "registrar_automation",
+      "to": "automationLogs",
+      "type": "creates",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "semesters",
+      "to": "courses",
+      "type": "offers",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "semesters",
+      "to": "enrollments",
+      "type": "has",
+      "cardinality": "one-to-many"
+    },
+    {
+      "from": "sections",
+      "to": "courses",
+      "type": "part_of",
+      "cardinality": "many-to-one"
+    },
+    {
+      "from": "sections",
+      "to": "users",
+      "type": "contains",
+      "cardinality": "many-to-many"
+    },
+    {
+      "from": "sections",
+      "to": "enrollments",
+      "type": "has",
+      "cardinality": "one-to-many"
+    }
+  ],
+  "roles": {
+    "Student": {
+      "permissions": [
+        "view_courses",
+        "enroll_courses", 
+        "view_course_materials",
+        "submit_assignments",
+        "submit_problems",
+        "view_submissions",
+        "receive_feedback",
+        "view_grades",
+        "view_attendance",
+        "earn_achievements",
+        "receive_notifications",
+        "view_progress_analytics",
+        "use_ai_tutor",
+        "participate_in_contests"
+      ],
+      "actions": [
+        "Browse and enroll in courses",
+        "Access course materials and syllabus",
+        "Submit coding problems and assignments",
+        "View submission results and feedback",
+        "Check grades and attendance",
+        "Earn achievements and points",
+        "Receive AI tutor assistance",
+        "Participate in contests and discussions"
+      ]
+    },
+    "Faculty": {
+      "permissions": [
+        "create_courses",
+        "edit_courses",
+        "delete_courses",
+        "create_problems",
+        "edit_problems",
+        "create_assignments",
+        "grade_submissions",
+        "provide_feedback",
+        "manage_attendance",
+        "view_student_progress",
+        "generate_reports",
+        "send_notifications",
+        "manage_course_materials",
+        "create_exams",
+        "proctor_exams",
+        "view_analytics"
+      ],
+      "actions": [
+        "Create and manage course content",
+        "Create coding problems and assignments",
+        "Grade student submissions with feedback",
+        "Track student attendance and progress",
+        "Generate course reports",
+        "Send announcements to students",
+        "Manage course materials and resources",
+        "Create and proctor exams"
+      ]
+    },
+    "Admin": {
+      "permissions": [
+        "manage_all_users",
+        "manage_all_courses",
+        "manage_departments",
+        "manage_programs",
+        "view_system_analytics",
+        "manage_automation",
+        "manage_notifications",
+        "generate_reports",
+        "manage_system_config",
+        "monitor_system_health",
+        "manage_integrations",
+        "view_audit_logs",
+        "manage_permissions"
+      ],
+      "actions": [
+        "Manage all user accounts and roles",
+        "Oversee all courses and programs",
+        "Configure automation workflows",
+        "Monitor system health and performance",
+        "Generate institutional reports",
+        "Manage departments and programs",
+        "Configure system settings and integrations",
+        "Review audit logs and compliance"
+      ]
+    },
+    "HOD": {
+      "permissions": [
+        "manage_department_courses",
+        "manage_department_faculty",
+        "view_department_analytics",
+        "approve_courses",
+        "manage_department_budget",
+        "generate_department_reports",
+        "manage_department_schedules"
+      ],
+      "actions": [
+        "Oversee department courses and faculty",
+        "Approve course offerings and schedules",
+        "Manage department resources and budget",
+        "Generate department-specific reports",
+        "Coordinate with other departments"
+      ]
+    },
+    "Super_Admin": {
+      "permissions": [
+        "system_administration",
+        "manage_all_permissions",
+        "configure_integrations",
+        "manage_database",
+        "system_backup_restore",
+        "manage_security_policies",
+        "global_system_config"
+      ],
+      "actions": [
+        "Complete system administration",
+        "Manage all user permissions and roles",
+        "Configure system-wide integrations",
+        "Database management and backups",
+        "Security policy configuration",
+        "Global system settings"
+      ]
+    }
+  },
+  "workflows": [
+    {
+      "name": "Student Enrollment Workflow",
+      "steps": [
+        "User Registration → Profile Creation → Program Selection → Course Enrollment → Section Assignment → Notification Generation → Access Granted"
+      ],
+      "participants": ["Student", "Admin", "Registrar_Automation"],
+      "triggers": ["student_registration", "course_enrollment"],
+      "outcomes": ["enrollment_confirmed", "access_granted", "notification_sent"]
+    },
+    {
+      "name": "Assignment Submission Workflow", 
+      "steps": [
+        "Assignment Creation → Student Notification → Student Submission → Universal Judge Evaluation → AI Tutor Analysis → Faculty Review → Grade Assignment → Feedback Delivery → Achievement Check → Notification Sent"
+      ],
+      "participants": ["Faculty", "Student", "Universal_Judge", "AI_Tutor"],
+      "triggers": ["assignment_created", "submission_received"],
+      "outcomes": ["submission_graded", "feedback_provided", "points_awarded"]
+    },
+    {
+      "name": "Lab Completion Workflow",
+      "steps": [
+        "Lab Problem Creation → Student Access → Code Submission → Automated Testing → Performance Analysis → AI Feedback → Grade Assignment → Progress Update → Achievement Unlock → Leaderboard Update"
+      ],
+      "participants": ["Faculty", "Student", "Universal_Judge", "AI_Tutor", "Gamification"],
+      "triggers": ["lab_started", "code_submitted"],
+      "outcomes": ["lab_completed", "skills_assessed", "progress_updated"]
+    },
+    {
+      "name": "AI Tutor Feedback Workflow",
+      "steps": [
+        "Submission Analysis → Code Quality Check → Logic Evaluation → Performance Assessment → Personalized Feedback Generation → Improvement Suggestions → Resource Recommendation → Progress Tracking → Follow-up Scheduling"
+      ],
+      "participants": ["AI_Tutor", "Student", "Universal_Judge"],
+      "triggers": ["submission_received", "help_requested"],
+      "outcomes": ["feedback_provided", "improvement_plan", "resources_suggested"]
+    },
+    {
+      "name": "Grading Workflow",
+      "steps": [
+        "Submission Collection → Automated Evaluation → Plagiarism Check → AI Assistance → Faculty Review → Grade Assignment → Feedback Composition → Grade Publication → Notification Sent → Analytics Update"
+      ],
+      "participants": ["Faculty", "Universal_Judge", "AI_Tutor", "Plagiarism_Detection"],
+      "triggers": ["grading_period", "submission_deadline"],
+      "outcomes": ["grades_published", "feedback_available", "analytics_updated"]
+    },
+    {
+      "name": "Notification Workflow",
+      "steps": [
+        "Event Detection → Priority Assessment → User Segmentation → Message Composition → Channel Selection → Delivery Execution → Read Confirmation → Follow-up Scheduling → Analytics Tracking"
+      ],
+      "participants": ["System", "Users", "Notification_Service"],
+      "triggers": ["system_events", "user_actions", "scheduled_events"],
+      "outcomes": ["notification_delivered", "user_engaged", "action_taken"]
+    },
+    {
+      "name": "Registrar Automation Workflow",
+      "steps": [
+        "Policy Configuration → Student Data Analysis → Prerequisite Validation → Enrollment Processing → Schedule Generation → Resource Allocation → Intervention Detection → Compliance Check → Report Generation → Notification Distribution"
+      ],
+      "participants": ["Registrar_Automation", "Admin", "AI_Tutor"],
+      "triggers": ["semester_start", "policy_change", "intervention_needed"],
+      "outcomes": ["automation_completed", "compliance_maintained", "efficiency_improved"]
+    }
+  ],
+  "diagram": "erDiagram\n    USERS ||--o{ ENROLLMENTS : enrolls_in\n    USERS ||--o{ SUBMISSIONS : submits\n    USERS ||--|| USER_POINTS : has\n    USERS ||--o{ ACHIEVEMENTS : earns\n    USERS ||--o{ NOTIFICATIONS : receives\n    USERS ||--o{ GRADE : receives\n    USERS ||--o{ ATTENDANCE : has\n    USERS }o--|| DEPARTMENTS : belongs_to\n    USERS }o--|| PROGRAMS : enrolled_in\n    \n    COURSES ||--o{ PROBLEMS : contains\n    COURSES ||--o{ ASSIGNMENTS : has\n    COURSES ||--o{ EXAMS : has\n    COURSES ||--o{ COURSE_MATERIALS : includes\n    COURSES }o--|| DEPARTMENTS : belongs_to\n    COURSES }o--|| PROGRAMS : part_of\n    COURSES ||--o{ ENROLLMENTS : enrolled_in\n    \n    PROBLEMS ||--o{ SUBMISSIONS : receives\n    PROBLEMS }o--|| USERS : created_by\n    \n    SUBMISSIONS ||--o{ GRADE : receives\n    SUBMISSIONS }o--|| USERS : submitted_by\n    \n    ENROLLMENTS ||--o{ SECTIONS : has\n    ENROLLMENTS }o--|| SEMESTERS : belongs_to\n    ENROLLMENTS }o--|| USERS : student_id\n    \n    SEMESTERS ||--o{ COURSES : offers\n    SEMESTERS ||--o{ ENROLLMENTS : has\n    \n    SECTIONS }o--|| COURSES : part_of\n    SECTIONS ||--o{ USERS : contains\n    SECTIONS ||--o{ ENROLLMENTS : has\n    \n    DEPARTMENTS ||--o{ PROGRAMS : offers\n    DEPARTMENTS ||--o{ COURSES : contains\n    DEPARTMENTS ||--o{ USERS : employs\n    \n    PROGRAMS ||--o{ COURSES : includes\n    PROGRAMS ||--o{ USERS : enrolls\n    \n    AI_TUTOR ||--o{ SUBMISSIONS : analyzes\n    AI_TUTOR ||--o{ USERS : provides_feedback\n    AI_TUTOR ||--o{ NOTIFICATIONS : generates\n    \n    UNIVERSAL_JUDGE ||--o{ SUBMISSIONS : evaluates\n    \n    REGISTRAR_AUTOMATION ||--o{ ENROLLMENTS : processes\n    REGISTRAR_AUTOMATION ||--o{ AUTOMATION_LOGS : creates\n    \n    FACULTY ||--o{ COURSES : teaches\n    FACULTY ||--o{ SUBMISSIONS : evaluates\n    FACULTY ||--o{ GRADE : assigns\n    \n    ADMIN ||--o{ USERS : manages\n    ADMIN ||--o{ COURSES : manages\n    ADMIN ||--o{ AUTOMATION_LOGS : monitors"
+}

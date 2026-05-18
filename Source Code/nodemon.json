@@ -1,0 +1,15 @@
+{
+  "watch": ["server"],
+  "ignore": [
+    "server/executor/temp/**",
+    "node_modules/**",
+    "uploads/**",
+    "logs/**",
+    ".git/**"
+  ],
+  "ext": "js,json",
+  "delay": 500,
+  "env": {
+    "NODE_ENV": "development"
+  }
+}

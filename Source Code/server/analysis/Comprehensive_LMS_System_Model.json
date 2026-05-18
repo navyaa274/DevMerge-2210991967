@@ -1,0 +1,1685 @@
+{
+  "metadata": {
+    "version": "2.0.0",
+    "created": "2026-03-11",
+    "description": "Comprehensive LMS System Model with detailed entity schemas, relationships, validation rules, and business logic",
+    "scope": "Complete Learning Management System Architecture"
+  },
+  "entities": {
+    "users": {
+      "description": "Core user entity with role-based access control",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "username": "VARCHAR(50) UNIQUE NOT NULL",
+        "email": "VARCHAR(100) UNIQUE NOT NULL",
+        "password_hash": "VARCHAR(255) NOT NULL",
+        "first_name": "VARCHAR(50) NOT NULL",
+        "last_name": "VARCHAR(50) NOT NULL",
+        "role": "ENUM('Student', 'Faculty', 'Admin', 'HOD', 'Super_Admin') NOT NULL",
+        "profile_picture": "TEXT",
+        "phone": "VARCHAR(20)",
+        "date_of_birth": "DATE",
+        "address": "TEXT",
+        "emergency_contact": "JSON",
+        "status": "ENUM('Active', 'Inactive', 'Suspended', 'Pending') DEFAULT 'Active'",
+        "last_login": "TIMESTAMP",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+        "preferences": "JSON",
+        "security_settings": "JSON",
+        "academic_info": "JSON"
+      },
+      "indexes": ["email", "username", "role", "status"],
+      "constraints": {
+        "unique": ["email", "username"],
+        "check": ["email LIKE '%@%.%'", "password_hash IS NOT NULL"]
+      },
+      "relationships": {
+        "enrollments": "one-to-many",
+        "submissions": "one-to-many", 
+        "grades": "one-to-many",
+        "notifications": "one-to-many",
+        "achievements": "one-to-many",
+        "user_points": "one-to-one",
+        "attendance": "one-to-many",
+        "department": "many-to-one",
+        "program": "many-to-one"
+      }
+    },
+    "departments": {
+      "description": "Organizational units for academic structure",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "name": "VARCHAR(100) NOT NULL",
+        "code": "VARCHAR(20) UNIQUE NOT NULL",
+        "description": "TEXT",
+        "head_id": "UUID REFERENCES users(id)",
+        "established_date": "DATE",
+        "budget": "DECIMAL(12,2)",
+        "status": "ENUM('Active', 'Inactive') DEFAULT 'Active'",
+        "contact_info": "JSON",
+        "facilities": "JSON",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["code", "name", "head_id"],
+      "constraints": {
+        "unique": ["code"],
+        "foreign_key": ["head_id"]
+      }
+    },
+    "programs": {
+      "description": "Academic programs with curriculum and requirements",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "name": "VARCHAR(100) NOT NULL",
+        "code": "VARCHAR(20) UNIQUE NOT NULL",
+        "department_id": "UUID REFERENCES departments(id)",
+        "degree_type": "ENUM('Bachelor', 'Master', 'PhD', 'Certificate', 'Diploma') NOT NULL",
+        "duration_years": "INTEGER NOT NULL",
+        "total_credits": "INTEGER NOT NULL",
+        "description": "TEXT",
+        "prerequisites": "JSON",
+        "curriculum": "JSON",
+        "learning_outcomes": "JSON",
+        "accreditation": "JSON",
+        "status": "ENUM('Active', 'Inactive', 'Under_Review') DEFAULT 'Active'",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["code", "department_id", "degree_type"],
+      "constraints": {
+        "unique": ["code"],
+        "foreign_key": ["department_id"],
+        "check": ["duration_years > 0", "total_credits > 0"]
+      }
+    },
+    "courses": {
+      "description": "Core academic offerings with comprehensive metadata",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "code": "VARCHAR(20) UNIQUE NOT NULL",
+        "title": "VARCHAR(200) NOT NULL",
+        "description": "TEXT",
+        "credits": "INTEGER NOT NULL",
+        "department_id": "UUID REFERENCES departments(id)",
+        "program_id": "UUID REFERENCES programs(id)",
+        "level": "ENUM('Beginner', 'Intermediate', 'Advanced', 'Graduate') NOT NULL",
+        "prerequisites": "JSON",
+        "learning_objectives": "JSON",
+        "syllabus": "JSON",
+        "schedule": "JSON",
+        "delivery_method": "ENUM('Online', 'In-Person', 'Hybrid', 'Lab') DEFAULT 'Online'",
+        "max_enrollment": "INTEGER",
+        "current_enrollment": "INTEGER DEFAULT 0",
+        "status": "ENUM('Draft', 'Published', 'Active', 'Completed', 'Archived') DEFAULT 'Draft'",
+        "start_date": "DATE",
+        "end_date": "DATE",
+        "instructor_id": "UUID REFERENCES users(id)",
+        "teaching_assistants": "JSON",
+        "resources": "JSON",
+        "assessment_strategy": "JSON",
+        "grading_policy": "JSON",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["code", "department_id", "program_id", "instructor_id", "status"],
+      "constraints": {
+        "unique": ["code"],
+        "foreign_key": ["department_id", "program_id", "instructor_id"],
+        "check": ["credits > 0", "max_enrollment > 0", "current_enrollment <= max_enrollment"]
+      }
+    },
+    "problems": {
+      "description": "Coding challenges and assessment problems",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "title": "VARCHAR(200) NOT NULL",
+        "description": "TEXT NOT NULL",
+        "difficulty": "ENUM('Easy', 'Medium', 'Hard', 'Expert') NOT NULL",
+        "category": "VARCHAR(50)",
+        "tags": "JSON",
+        "course_id": "UUID REFERENCES courses(id)",
+        "creator_id": "UUID REFERENCES users(id)",
+        "problem_statement": "TEXT NOT NULL",
+        "input_format": "TEXT",
+        "output_format": "TEXT",
+        "constraints": "TEXT",
+        "examples": "JSON",
+        "test_cases": "JSON NOT NULL",
+        "solution": "TEXT",
+        "explanation": "TEXT",
+        "hints": "JSON",
+        "time_limit": "INTEGER DEFAULT 1000",
+        "memory_limit": "INTEGER DEFAULT 256",
+        "points": "INTEGER DEFAULT 100",
+        "submission_count": "INTEGER DEFAULT 0",
+        "acceptance_rate": "DECIMAL(5,2) DEFAULT 0.00",
+        "status": "ENUM('Draft', 'Published', 'Hidden', 'Archived') DEFAULT 'Draft'",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["course_id", "creator_id", "difficulty", "category", "status"],
+      "constraints": {
+        "foreign_key": ["course_id", "creator_id"],
+        "check": ["points > 0", "time_limit > 0", "memory_limit > 0"]
+      }
+    },
+    "assignments": {
+      "description": "Course-specific assignments and tasks",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "title": "VARCHAR(200) NOT NULL",
+        "description": "TEXT NOT NULL",
+        "course_id": "UUID REFERENCES courses(id)",
+        "creator_id": "UUID REFERENCES users(id)",
+        "type": "ENUM('Coding', 'Essay', 'Project', 'Quiz', 'Presentation', 'Lab') NOT NULL",
+        "instructions": "TEXT NOT NULL",
+        "requirements": "JSON",
+        "rubric": "JSON",
+        "total_points": "INTEGER NOT NULL",
+        "due_date": "TIMESTAMP NOT NULL",
+        "available_date": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "late_submission_policy": "JSON",
+        "submission_format": "JSON",
+        "allowed_file_types": "JSON",
+        "max_file_size": "INTEGER",
+        "attempts_allowed": "INTEGER DEFAULT 1",
+        "show_solution_after_due": "BOOLEAN DEFAULT false",
+        "auto_grade": "BOOLEAN DEFAULT false",
+        "peer_review": "BOOLEAN DEFAULT false",
+        "status": "ENUM('Draft', 'Published', 'Closed', 'Archived') DEFAULT 'Draft'",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["course_id", "creator_id", "type", "due_date", "status"],
+      "constraints": {
+        "foreign_key": ["course_id", "creator_id"],
+        "check": ["total_points > 0", "due_date > available_date"]
+      }
+    },
+    "submissions": {
+      "description": "Student submissions with comprehensive evaluation",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "user_id": "UUID REFERENCES users(id) NOT NULL",
+        "assignment_id": "UUID REFERENCES assignments(id)",
+        "problem_id": "UUID REFERENCES problems(id)",
+        "submission_type": "ENUM('Assignment', 'Problem', 'Exam', 'Quiz') NOT NULL",
+        "content": "TEXT NOT NULL",
+        "file_attachments": "JSON",
+        "submission_code": "TEXT",
+        "language": "VARCHAR(20)",
+        "submitted_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "status": "ENUM('Submitted', 'Processing', 'Evaluated', 'Graded', 'Returned', 'Plagiarism_Flagged') DEFAULT 'Submitted'",
+        "evaluation_results": "JSON",
+        "test_results": "JSON",
+        "score": "DECIMAL(5,2)",
+        "max_score": "DECIMAL(5,2)",
+        "feedback": "TEXT",
+        "instructor_feedback": "TEXT",
+        "ai_feedback": "TEXT",
+        "peer_reviews": "JSON",
+        "plagiarism_score": "DECIMAL(5,2)",
+        "plagiarism_report": "JSON",
+        "attempts": "INTEGER DEFAULT 1",
+        "late_penalty": "DECIMAL(5,2) DEFAULT 0.00",
+        "graded_by": "UUID REFERENCES users(id)",
+        "graded_at": "TIMESTAMP",
+        "returned_at": "TIMESTAMP",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["user_id", "assignment_id", "problem_id", "status", "submitted_at"],
+      "constraints": {
+        "foreign_key": ["user_id", "assignment_id", "problem_id", "graded_by"],
+        "check": ["score >= 0", "max_score > 0", "score <= max_score"]
+      }
+    },
+    "enrollments": {
+      "description": "Student-course enrollment relationships with status tracking",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "user_id": "UUID REFERENCES users(id) NOT NULL",
+        "course_id": "UUID REFERENCES courses(id) NOT NULL",
+        "section_id": "UUID REFERENCES sections(id)",
+        "semester_id": "UUID REFERENCES semesters(id)",
+        "enrollment_date": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "status": "ENUM('Pending', 'Confirmed', 'Active', 'Completed', 'Dropped', 'Suspended') DEFAULT 'Pending'",
+        "grade_status": "ENUM('Not_Graded', 'In_Progress', 'Graded', 'Appealed') DEFAULT 'Not_Graded'",
+        "final_grade": "DECIMAL(5,2)",
+        "letter_grade": "VARCHAR(2)",
+        "credits_earned": "INTEGER",
+        "attendance_percentage": "DECIMAL(5,2) DEFAULT 0.00",
+        "completion_percentage": "DECIMAL(5,2) DEFAULT 0.00",
+        "last_activity": "TIMESTAMP",
+        "drop_date": "TIMESTAMP",
+        "drop_reason": "TEXT",
+        "academic_standing": "ENUM('Good', 'Warning', 'Probation', 'Suspension') DEFAULT 'Good'",
+        "special_accommodations": "JSON",
+        "notes": "TEXT",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["user_id", "course_id", "section_id", "semester_id", "status"],
+      "constraints": {
+        "unique": ["user_id", "course_id", "semester_id"],
+        "foreign_key": ["user_id", "course_id", "section_id", "semester_id"],
+        "check": ["final_grade >= 0", "final_grade <= 100", "attendance_percentage >= 0", "attendance_percentage <= 100"]
+      }
+    },
+    "grades": {
+      "description": "Academic performance records",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "user_id": "UUID REFERENCES users(id) NOT NULL",
+        "course_id": "UUID REFERENCES courses(id)",
+        "assignment_id": "UUID REFERENCES assignments(id)",
+        "submission_id": "UUID REFERENCES submissions(id)",
+        "exam_id": "UUID REFERENCES exams(id)",
+        "grade_type": "ENUM('Assignment', 'Exam', 'Quiz', 'Participation', 'Project', 'Final') NOT NULL",
+        "score": "DECIMAL(5,2) NOT NULL",
+        "max_score": "DECIMAL(5,2) NOT NULL",
+        "percentage": "DECIMAL(5,2) GENERATED ALWAYS AS (score / max_score * 100) STORED",
+        "letter_grade": "VARCHAR(2)",
+        "gpa_points": "DECIMAL(3,2)",
+        "weight": "DECIMAL(5,2) DEFAULT 1.00",
+        "graded_by": "UUID REFERENCES users(id)",
+        "graded_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "feedback": "TEXT",
+        "rubric_scores": "JSON",
+        "curve_applied": "BOOLEAN DEFAULT false",
+        "extra_credit": "DECIMAL(5,2) DEFAULT 0.00",
+        "late_penalty": "DECIMAL(5,2) DEFAULT 0.00",
+        "status": "ENUM('Draft', 'Final', 'Appealed', 'Adjusted') DEFAULT 'Draft'",
+        "appeal_reason": "TEXT",
+        "appeal_status": "ENUM('None', 'Pending', 'Approved', 'Rejected') DEFAULT 'None'",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["user_id", "course_id", "assignment_id", "exam_id", "grade_type"],
+      "constraints": {
+        "foreign_key": ["user_id", "course_id", "assignment_id", "submission_id", "exam_id", "graded_by"],
+        "check": ["score >= 0", "max_score > 0", "score <= max_score", "percentage >= 0", "percentage <= 100"]
+      }
+    },
+    "notifications": {
+      "description": "System-wide messaging and notification system",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "recipient_id": "UUID REFERENCES users(id) NOT NULL",
+        "sender_id": "UUID REFERENCES users(id)",
+        "type": "ENUM('System', 'Academic', 'Administrative', 'Social', 'Alert', 'Reminder') NOT NULL",
+        "category": "VARCHAR(50)",
+        "priority": "ENUM('Low', 'Normal', 'High', 'Urgent') DEFAULT 'Normal'",
+        "title": "VARCHAR(200) NOT NULL",
+        "message": "TEXT NOT NULL",
+        "action_url": "TEXT",
+        "action_required": "BOOLEAN DEFAULT false",
+        "delivery_methods": "JSON",
+        "scheduled_at": "TIMESTAMP",
+        "sent_at": "TIMESTAMP",
+        "read_at": "TIMESTAMP",
+        "expires_at": "TIMESTAMP",
+        "status": "ENUM('Draft', 'Scheduled', 'Sent', 'Read', 'Expired', 'Failed') DEFAULT 'Draft'",
+        "read_count": "INTEGER DEFAULT 0",
+        "response_required": "BOOLEAN DEFAULT false",
+        "response_deadline": "TIMESTAMP",
+        "metadata": "JSON",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["recipient_id", "sender_id", "type", "priority", "status", "scheduled_at"],
+      "constraints": {
+        "foreign_key": ["recipient_id", "sender_id"]
+      }
+    },
+    "achievements": {
+      "description": "Gamification system for student motivation",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "user_id": "UUID REFERENCES users(id) NOT NULL",
+        "achievement_type": "ENUM('Course_Completion', 'Perfect_Score', 'Streak', 'Participation', 'Leadership', 'Innovation', 'Helpfulness') NOT NULL",
+        "title": "VARCHAR(100) NOT NULL",
+        "description": "TEXT NOT NULL",
+        "badge_icon": "TEXT",
+        "badge_color": "VARCHAR(10)",
+        "points_awarded": "INTEGER NOT NULL",
+        "level": "INTEGER DEFAULT 1",
+        "criteria": "JSON",
+        "progress": "JSON",
+        "earned_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "expires_at": "TIMESTAMP",
+        "status": "ENUM('In_Progress', 'Earned', 'Expired', 'Revoked') DEFAULT 'In_Progress'",
+        "shared_publicly": "BOOLEAN DEFAULT false",
+        "celebration_sent": "BOOLEAN DEFAULT false",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["user_id", "achievement_type", "status", "earned_at"],
+      "constraints": {
+        "foreign_key": ["user_id"],
+        "check": ["points_awarded > 0", "level > 0"]
+      }
+    },
+    "user_points": {
+      "description": "Points and rewards system for gamification",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "user_id": "UUID REFERENCES users(id) UNIQUE NOT NULL",
+        "total_points": "INTEGER DEFAULT 0",
+        "available_points": "INTEGER DEFAULT 0",
+        "spent_points": "INTEGER DEFAULT 0",
+        "level": "INTEGER DEFAULT 1",
+        "experience_points": "INTEGER DEFAULT 0",
+        "current_streak": "INTEGER DEFAULT 0",
+        "longest_streak": "INTEGER DEFAULT 0",
+        "leaderboard_rank": "INTEGER",
+        "badges_count": "INTEGER DEFAULT 0",
+        "achievements_count": "INTEGER DEFAULT 0",
+        "last_activity": "TIMESTAMP",
+        "points_history": "JSON",
+        "rewards_unlocked": "JSON",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["user_id", "total_points", "level", "leaderboard_rank"],
+      "constraints": {
+        "unique": ["user_id"],
+        "foreign_key": ["user_id"],
+        "check": ["total_points >= 0", "available_points >= 0", "spent_points >= 0"]
+      }
+    },
+    "attendance": {
+      "description": "Student attendance tracking system",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "user_id": "UUID REFERENCES users(id) NOT NULL",
+        "course_id": "UUID REFERENCES courses(id)",
+        "section_id": "UUID REFERENCES sections(id)",
+        "date": "DATE NOT NULL",
+        "status": "ENUM('Present', 'Absent', 'Late', 'Excused', 'Leave') NOT NULL",
+        "check_in_time": "TIMESTAMP",
+        "check_out_time": "TIMESTAMP",
+        "duration_minutes": "INTEGER",
+        "location": "VARCHAR(100)",
+        "verification_method": "ENUM('Manual', 'Biometric', 'QR_Code', 'GPS', 'Facial_Recognition') DEFAULT 'Manual'",
+        "marked_by": "UUID REFERENCES users(id)",
+        "notes": "TEXT",
+        "excuse_reason": "TEXT",
+        "excuse_approved_by": "UUID REFERENCES users(id)",
+        "auto_marked": "BOOLEAN DEFAULT false",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["user_id", "course_id", "section_id", "date", "status"],
+      "constraints": {
+        "unique": ["user_id", "course_id", "date"],
+        "foreign_key": ["user_id", "course_id", "section_id", "marked_by", "excuse_approved_by"],
+        "check": ["duration_minutes >= 0"]
+      }
+    },
+    "course_materials": {
+      "description": "Educational resources and content management",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "course_id": "UUID REFERENCES courses(id) NOT NULL",
+        "title": "VARCHAR(200) NOT NULL",
+        "description": "TEXT",
+        "type": "ENUM('Document', 'Video', 'Audio', 'Presentation', 'Link', 'Interactive', 'Dataset', 'Code') NOT NULL",
+        "content": "TEXT",
+        "file_url": "TEXT",
+        "file_size": "INTEGER",
+        "file_format": "VARCHAR(10)",
+        "duration": "INTEGER",
+        "order_index": "INTEGER",
+        "module": "VARCHAR(100)",
+        "is_required": "BOOLEAN DEFAULT false",
+        "is_downloadable": "BOOLEAN DEFAULT true",
+        "access_level": "ENUM('Public', 'Enrolled', 'Premium', 'Restricted') DEFAULT 'Enrolled'",
+        "tags": "JSON",
+        "metadata": "JSON",
+        "view_count": "INTEGER DEFAULT 0",
+        "download_count": "INTEGER DEFAULT 0",
+        "created_by": "UUID REFERENCES users(id)",
+        "status": "ENUM('Draft', 'Published', 'Archived') DEFAULT 'Draft'",
+        "published_at": "TIMESTAMP",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["course_id", "type", "module", "order_index", "status"],
+      "constraints": {
+        "foreign_key": ["course_id", "created_by"],
+        "check": ["file_size >= 0", "duration >= 0", "view_count >= 0"]
+      }
+    },
+    "exams": {
+      "description": "Formal examinations with comprehensive management",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "title": "VARCHAR(200) NOT NULL",
+        "description": "TEXT",
+        "course_id": "UUID REFERENCES courses(id) NOT NULL",
+        "creator_id": "UUID REFERENCES users(id)",
+        "type": "ENUM('Midterm', 'Final', 'Quiz', 'Practical', 'Oral', 'Take_Home') NOT NULL",
+        "duration_minutes": "INTEGER NOT NULL",
+        "total_points": "INTEGER NOT NULL",
+        "instructions": "TEXT NOT NULL",
+        "questions": "JSON NOT NULL",
+        "answer_key": "JSON",
+        "rubric": "JSON",
+        "scheduled_start": "TIMESTAMP NOT NULL",
+        "scheduled_end": "TIMESTAMP NOT NULL",
+        "late_submission_allowed": "BOOLEAN DEFAULT false",
+        "late_penalty_policy": "JSON",
+        "attempts_allowed": "INTEGER DEFAULT 1",
+        "show_results_immediately": "BOOLEAN DEFAULT false",
+        "show_correct_answers": "BOOLEAN DEFAULT false",
+        "randomize_questions": "BOOLEAN DEFAULT false",
+        "proctoring_enabled": "BOOLEAN DEFAULT false",
+        "proctoring_settings": "JSON",
+        "access_code": "VARCHAR(20)",
+        "status": "ENUM('Draft', 'Scheduled', 'Active', 'Completed', 'Graded', 'Archived') DEFAULT 'Draft'",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["course_id", "creator_id", "type", "scheduled_start", "status"],
+      "constraints": {
+        "foreign_key": ["course_id", "creator_id"],
+        "check": ["duration_minutes > 0", "total_points > 0", "scheduled_end > scheduled_start"]
+      }
+    },
+    "semesters": {
+      "description": "Academic time periods",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "name": "VARCHAR(50) NOT NULL",
+        "code": "VARCHAR(20) UNIQUE NOT NULL",
+        "academic_year": "VARCHAR(20) NOT NULL",
+        "start_date": "DATE NOT NULL",
+        "end_date": "DATE NOT NULL",
+        "registration_start": "DATE NOT NULL",
+        "registration_end": "DATE NOT NULL",
+        "add_drop_deadline": "DATE",
+        "withdrawal_deadline": "DATE",
+        "final_exam_period_start": "DATE",
+        "final_exam_period_end": "DATE",
+        "grade_submission_deadline": "DATE",
+        "status": "ENUM('Planning', 'Registration', 'Active', 'Break', 'Completed', 'Archived') DEFAULT 'Planning'",
+        "description": "TEXT",
+        "holidays": "JSON",
+        "important_dates": "JSON",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["code", "academic_year", "status"],
+      "constraints": {
+        "unique": ["code"],
+        "check": ["end_date > start_date", "registration_end > registration_start"]
+      }
+    },
+    "sections": {
+      "description": "Course subdivisions for better management",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "course_id": "UUID REFERENCES courses(id) NOT NULL",
+        "semester_id": "UUID REFERENCES semesters(id) NOT NULL",
+        "section_number": "VARCHAR(10) NOT NULL",
+        "title": "VARCHAR(100)",
+        "instructor_id": "UUID REFERENCES users(id)",
+        "teaching_assistants": "JSON",
+        "schedule": "JSON",
+        "location": "VARCHAR(100)",
+        "max_enrollment": "INTEGER",
+        "current_enrollment": "INTEGER DEFAULT 0",
+        "waitlist_count": "INTEGER DEFAULT 0",
+        "status": "ENUM('Draft', 'Open', 'Closed', 'Completed', 'Cancelled') DEFAULT 'Draft'",
+        "delivery_method": "ENUM('Online', 'In-Person', 'Hybrid', 'Lab') DEFAULT 'Online'",
+        "special_instructions": "TEXT",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["course_id", "semester_id", "instructor_id", "section_number"],
+      "constraints": {
+        "unique": ["course_id", "semester_id", "section_number"],
+        "foreign_key": ["course_id", "semester_id", "instructor_id"],
+        "check": ["max_enrollment > 0", "current_enrollment >= 0"]
+      }
+    },
+    "analytics": {
+      "description": "Performance and engagement metrics",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "entity_type": "ENUM('User', 'Course', 'Department', 'Program', 'System') NOT NULL",
+        "entity_id": "UUID NOT NULL",
+        "metric_type": "ENUM('Performance', 'Engagement', 'Activity', 'Progress', 'Retention', 'Satisfaction') NOT NULL",
+        "metric_name": "VARCHAR(100) NOT NULL",
+        "metric_value": "DECIMAL(10,4) NOT NULL",
+        "metric_unit": "VARCHAR(20)",
+        "time_period": "ENUM('Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly', 'Custom') NOT NULL",
+        "period_start": "DATE NOT NULL",
+        "period_end": "DATE NOT NULL",
+        "comparison_value": "DECIMAL(10,4)",
+        "comparison_period": "VARCHAR(50)",
+        "trend": "ENUM('Up', 'Down', 'Stable', 'Volatile')",
+        "target_value": "DECIMAL(10,4)",
+        "threshold_min": "DECIMAL(10,4)",
+        "threshold_max": "DECIMAL(10,4)",
+        "data_source": "VARCHAR(50)",
+        "calculation_method": "VARCHAR(100)",
+        "metadata": "JSON",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["entity_type", "entity_id", "metric_type", "time_period", "period_start"],
+      "constraints": {
+        "unique": ["entity_type", "entity_id", "metric_name", "time_period", "period_start"],
+        "check": ["period_end >= period_start"]
+      }
+    },
+    "reports": {
+      "description": "Institutional reporting and compliance",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "title": "VARCHAR(200) NOT NULL",
+        "description": "TEXT",
+        "type": "ENUM('Academic', 'Financial', 'Operational', 'Compliance', 'Performance', 'Custom') NOT NULL",
+        "category": "VARCHAR(50)",
+        "parameters": "JSON",
+        "filters": "JSON",
+        "data_sources": "JSON",
+        "format": "ENUM('PDF', 'Excel', 'CSV', 'JSON', 'HTML') DEFAULT 'PDF'",
+        "schedule": "JSON",
+        "recipients": "JSON",
+        "template_id": "UUID",
+        "generated_by": "UUID REFERENCES users(id)",
+        "status": "ENUM('Pending', 'Generating', 'Completed', 'Failed', 'Scheduled') DEFAULT 'Pending'",
+        "file_url": "TEXT",
+        "file_size": "INTEGER",
+        "generation_time": "INTEGER",
+        "last_run": "TIMESTAMP",
+        "next_run": "TIMESTAMP",
+        "error_message": "TEXT",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["type", "category", "status", "generated_by", "next_run"],
+      "constraints": {
+        "foreign_key": ["generated_by"],
+        "check": ["file_size >= 0", "generation_time >= 0"]
+      }
+    },
+    "automation_logs": {
+      "description": "System automation tracking and monitoring",
+      "schema": {
+        "id": "UUID PRIMARY KEY",
+        "workflow_name": "VARCHAR(100) NOT NULL",
+        "workflow_type": "ENUM('Enrollment', 'Grading', 'Notification', 'Report', 'Backup', 'Maintenance', 'Integration') NOT NULL",
+        "trigger_type": "ENUM('Scheduled', 'Event', 'Manual', 'API', 'System') NOT NULL",
+        "trigger_details": "JSON",
+        "status": "ENUM('Started', 'Running', 'Completed', 'Failed', 'Cancelled', 'Retrying') NOT NULL",
+        "start_time": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "end_time": "TIMESTAMP",
+        "duration_seconds": "INTEGER",
+        "steps_executed": "INTEGER DEFAULT 0",
+        "steps_total": "INTEGER",
+        "success_count": "INTEGER DEFAULT 0",
+        "error_count": "INTEGER DEFAULT 0",
+        "records_processed": "INTEGER DEFAULT 0",
+        "input_data": "JSON",
+        "output_data": "JSON",
+        "error_details": "JSON",
+        "performance_metrics": "JSON",
+        "retry_count": "INTEGER DEFAULT 0",
+        "next_retry": "TIMESTAMP",
+        "initiated_by": "UUID REFERENCES users(id)",
+        "system_user": "VARCHAR(50)",
+        "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+        "updated_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+      },
+      "indexes": ["workflow_name", "workflow_type", "trigger_type", "status", "start_time"],
+      "constraints": {
+        "foreign_key": ["initiated_by"],
+        "check": ["duration_seconds >= 0", "steps_executed >= 0", "success_count >= 0", "error_count >= 0"]
+      }
+    }
+  },
+  "relationships": [
+    {
+      "name": "user_enrollments",
+      "from_entity": "users",
+      "to_entity": "enrollments",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "user_id",
+      "on_delete": "CASCADE",
+      "description": "Users can have multiple enrollments across different courses and semesters"
+    },
+    {
+      "name": "course_enrollments",
+      "from_entity": "courses",
+      "to_entity": "enrollments",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "course_id",
+      "on_delete": "CASCADE",
+      "description": "Courses can have multiple student enrollments"
+    },
+    {
+      "name": "user_submissions",
+      "from_entity": "users",
+      "to_entity": "submissions",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "user_id",
+      "on_delete": "CASCADE",
+      "description": "Users can submit multiple assignments and problems"
+    },
+    {
+      "name": "assignment_submissions",
+      "from_entity": "assignments",
+      "to_entity": "submissions",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "assignment_id",
+      "on_delete": "CASCADE",
+      "description": "Assignments can receive multiple student submissions"
+    },
+    {
+      "name": "problem_submissions",
+      "from_entity": "problems",
+      "to_entity": "submissions",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "problem_id",
+      "on_delete": "CASCADE",
+      "description": "Problems can receive multiple student submissions"
+    },
+    {
+      "name": "user_grades",
+      "from_entity": "users",
+      "to_entity": "grades",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "user_id",
+      "on_delete": "CASCADE",
+      "description": "Users can receive multiple grades across different activities"
+    },
+    {
+      "name": "course_grades",
+      "from_entity": "courses",
+      "to_entity": "grades",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "course_id",
+      "on_delete": "CASCADE",
+      "description": "Courses contain multiple grade entries"
+    },
+    {
+      "name": "assignment_grades",
+      "from_entity": "assignments",
+      "to_entity": "grades",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "assignment_id",
+      "on_delete": "CASCADE",
+      "description": "Assignments can have multiple grade entries"
+    },
+    {
+      "name": "user_achievements",
+      "from_entity": "users",
+      "to_entity": "achievements",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "user_id",
+      "on_delete": "CASCADE",
+      "description": "Users can earn multiple achievements"
+    },
+    {
+      "name": "user_points",
+      "from_entity": "users",
+      "to_entity": "user_points",
+      "type": "one-to-one",
+      "cardinality": "1:1",
+      "foreign_key": "user_id",
+      "on_delete": "CASCADE",
+      "description": "Each user has exactly one points record"
+    },
+    {
+      "name": "user_notifications",
+      "from_entity": "users",
+      "to_entity": "notifications",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "recipient_id",
+      "on_delete": "CASCADE",
+      "description": "Users can receive multiple notifications"
+    },
+    {
+      "name": "user_attendance",
+      "from_entity": "users",
+      "to_entity": "attendance",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "user_id",
+      "on_delete": "CASCADE",
+      "description": "Users can have multiple attendance records"
+    },
+    {
+      "name": "course_attendance",
+      "from_entity": "courses",
+      "to_entity": "attendance",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "course_id",
+      "on_delete": "CASCADE",
+      "description": "Courses track attendance for multiple students"
+    },
+    {
+      "name": "department_courses",
+      "from_entity": "departments",
+      "to_entity": "courses",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "department_id",
+      "on_delete": "RESTRICT",
+      "description": "Departments offer multiple courses"
+    },
+    {
+      "name": "program_courses",
+      "from_entity": "programs",
+      "to_entity": "courses",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "program_id",
+      "on_delete": "RESTRICT",
+      "description": "Programs include multiple courses"
+    },
+    {
+      "name": "course_problems",
+      "from_entity": "courses",
+      "to_entity": "problems",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "course_id",
+      "on_delete": "CASCADE",
+      "description": "Courses contain multiple problems"
+    },
+    {
+      "name": "course_assignments",
+      "from_entity": "courses",
+      "to_entity": "assignments",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "course_id",
+      "on_delete": "CASCADE",
+      "description": "Courses contain multiple assignments"
+    },
+    {
+      "name": "course_exams",
+      "from_entity": "courses",
+      "to_entity": "exams",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "course_id",
+      "on_delete": "CASCADE",
+      "description": "Courses contain multiple exams"
+    },
+    {
+      "name": "course_materials",
+      "from_entity": "courses",
+      "to_entity": "course_materials",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "course_id",
+      "on_delete": "CASCADE",
+      "description": "Courses include multiple learning materials"
+    },
+    {
+      "name": "semester_courses",
+      "from_entity": "semesters",
+      "to_entity": "courses",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "through": "sections",
+      "description": "Semesters offer courses through sections"
+    },
+    {
+      "name": "section_enrollments",
+      "from_entity": "sections",
+      "to_entity": "enrollments",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "section_id",
+      "on_delete": "CASCADE",
+      "description": "Sections have multiple student enrollments"
+    },
+    {
+      "name": "section_attendance",
+      "from_entity": "sections",
+      "to_entity": "attendance",
+      "type": "one-to-many",
+      "cardinality": "1:N",
+      "foreign_key": "section_id",
+      "on_delete": "CASCADE",
+      "description": "Sections track attendance for enrolled students"
+    }
+  ],
+  "business_rules": {
+    "enrollment_rules": [
+      {
+        "rule": "Prerequisite Validation",
+        "description": "Students must complete all prerequisite courses before enrollment",
+        "validation": "Check completed courses against prerequisites",
+        "error_message": "Prerequisites not satisfied for course enrollment"
+      },
+      {
+        "rule": "Capacity Limits",
+        "description": "Course sections cannot exceed maximum enrollment capacity",
+        "validation": "Check current enrollment against max_enrollment",
+        "error_message": "Course section is at full capacity"
+      },
+      {
+        "rule": "Schedule Conflicts",
+        "description": "Students cannot enroll in courses with overlapping schedules",
+        "validation": "Check section schedules against existing enrollments",
+        "error_message": "Schedule conflict detected with existing enrollment"
+      },
+      {
+        "rule": "Credit Load Limits",
+        "description": "Students cannot exceed maximum credit load per semester",
+        "validation": "Sum enrolled course credits against limit",
+        "error_message": "Credit load limit exceeded for semester"
+      }
+    ],
+    "grading_rules": [
+      {
+        "rule": "Grade Scale Validation",
+        "description": "Letter grades must correspond to percentage ranges",
+        "validation": "Apply institutional grading scale",
+        "error_message": "Invalid grade assignment for percentage range"
+      },
+      {
+        "rule": "Late Submission Penalties",
+        "description": "Late submissions receive penalties based on policy",
+        "validation": "Calculate penalty based on submission time and policy",
+        "error_message": "Late penalty calculation failed"
+      },
+      {
+        "rule": "Grade Appeal Deadline",
+        "description": "Grade appeals must be submitted within specified timeframe",
+        "validation": "Check appeal submission against deadline",
+        "error_message": "Grade appeal deadline has passed"
+      }
+    ],
+    "attendance_rules": [
+      {
+        "rule": "Minimum Attendance Requirement",
+        "description": "Students must maintain minimum attendance percentage",
+        "validation": "Calculate attendance percentage against requirement",
+        "error_message": "Minimum attendance requirement not met"
+      },
+      {
+        "rule": "Excused Absence Validation",
+        "description": "Excused absences require proper documentation",
+        "validation": "Verify excuse documentation and approval",
+        "error_message": "Invalid excuse documentation provided"
+      }
+    ],
+    "academic_standing_rules": [
+      {
+        "rule": "GPA Requirements",
+        "description": "Students must maintain minimum GPA for good standing",
+        "validation": "Calculate cumulative GPA against requirement",
+        "error_message": "GPA below minimum requirement"
+      },
+      {
+        "rule": "Progress Requirements",
+        "description": "Students must complete minimum credits per academic year",
+        "validation": "Check completed credits against progress requirements",
+        "error_message": "Academic progress requirements not met"
+      }
+    ]
+  },
+  "workflows": {
+    "student_enrollment": {
+      "name": "Student Enrollment Workflow",
+      "description": "Complete student enrollment process with validation and notifications",
+      "steps": [
+        {
+          "step": 1,
+          "name": "Eligibility Check",
+          "description": "Validate student eligibility for enrollment",
+          "actions": ["Check academic standing", "Verify prerequisites", "Validate schedule"],
+          "responsible": "System",
+          "duration": "Instant"
+        },
+        {
+          "step": 2,
+          "name": "Course Selection",
+          "description": "Student selects courses for enrollment",
+          "actions": ["Browse available courses", "Check prerequisites", "View schedules"],
+          "responsible": "Student",
+          "duration": "Variable"
+        },
+        {
+          "step": 3,
+          "name": "Capacity Validation",
+          "description": "Check course capacity and availability",
+          "actions": ["Verify seat availability", "Check waitlist status", "Validate section capacity"],
+          "responsible": "System",
+          "duration": "Instant"
+        },
+        {
+          "step": 4,
+          "name": "Schedule Conflict Check",
+          "description": "Validate no schedule conflicts exist",
+          "actions": ["Compare course schedules", "Check time overlaps", "Validate location conflicts"],
+          "responsible": "System",
+          "duration": "Instant"
+        },
+        {
+          "step": 5,
+          "name": "Credit Load Validation",
+          "description": "Validate total credit load within limits",
+          "actions": ["Calculate total credits", "Check against limits", "Validate program requirements"],
+          "responsible": "System",
+          "duration": "Instant"
+        },
+        {
+          "step": 6,
+          "name": "Financial Clearance",
+          "description": "Verify financial standing and payments",
+          "actions": ["Check tuition balance", "Verify payment status", "Validate financial aid"],
+          "responsible": "Finance System",
+          "duration": "Variable"
+        },
+        {
+          "step": 7,
+          "name": "Enrollment Confirmation",
+          "description": "Confirm and process enrollment",
+          "actions": ["Create enrollment records", "Assign to sections", "Update course capacity"],
+          "responsible": "Registrar",
+          "duration": "Instant"
+        },
+        {
+          "step": 8,
+          "name": "Notification Generation",
+          "description": "Send enrollment confirmation notifications",
+          "actions": ["Generate enrollment confirmation", "Send course details", "Create calendar events"],
+          "responsible": "Notification System",
+          "duration": "Instant"
+        },
+        {
+          "step": 9,
+          "name": "Access Provisioning",
+          "description": "Grant access to course resources",
+          "actions": ["Enable course access", "Create user accounts", "Provision learning materials"],
+          "responsible": "Access Management",
+          "duration": "Variable"
+        }
+      ],
+      "triggers": ["Student registration", "Course selection", "Schedule change"],
+      "participants": ["Student", "Registrar", "Finance System", "Notification System"],
+      "success_criteria": ["Enrollment confirmed", "Access granted", "Notifications sent"],
+      "failure_handling": ["Waitlist placement", "Schedule adjustment", "Financial counseling"]
+    },
+    "assignment_submission": {
+      "name": "Assignment Submission Workflow",
+      "description": "Complete assignment submission and evaluation process",
+      "steps": [
+        {
+          "step": 1,
+          "name": "Assignment Distribution",
+          "description": "Distribute assignment to enrolled students",
+          "actions": ["Send assignment notification", "Provide access to materials", "Set deadline reminders"],
+          "responsible": "Instructor",
+          "duration": "Instant"
+        },
+        {
+          "step": 2,
+          "name": "Student Work",
+          "description": "Student completes assignment work",
+          "actions": ["Access assignment details", "Complete required work", "Prepare submission"],
+          "responsible": "Student",
+          "duration": "Variable"
+        },
+        {
+          "step": 3,
+          "name": "Submission Processing",
+          "description": "Process and validate student submission",
+          "actions": ["Receive submission files", "Validate format", "Check submission time"],
+          "responsible": "System",
+          "duration": "Instant"
+        },
+        {
+          "step": 4,
+          "name": "Automated Evaluation",
+          "description": "Run automated evaluation if applicable",
+          "actions": ["Execute test cases", "Check plagiarism", "Calculate initial score"],
+          "responsible": "Universal Judge",
+          "duration": "Variable"
+        },
+        {
+          "step": 5,
+          "name": "AI Analysis",
+          "description": "AI analyzes submission for feedback",
+          "actions": ["Code quality analysis", "Logic evaluation", "Feedback generation"],
+          "responsible": "AI Tutor",
+          "duration": "Variable"
+        },
+        {
+          "step": 6,
+          "name": "Instructor Review",
+          "description": "Instructor reviews and grades submission",
+          "actions": ["Review submission quality", "Assign final grade", "Provide feedback"],
+          "responsible": "Instructor",
+          "duration": "Variable"
+        },
+        {
+          "step": 7,
+          "name": "Grade Assignment",
+          "description": "Finalize and record grades",
+          "actions": ["Calculate final score", "Apply grading rubric", "Update grade book"],
+          "responsible": "Grading System",
+          "duration": "Instant"
+        },
+        {
+          "step": 8,
+          "name": "Feedback Delivery",
+          "description": "Deliver feedback to student",
+          "actions": ["Send grade notification", "Provide detailed feedback", "Share improvement suggestions"],
+          "responsible": "Notification System",
+          "duration": "Instant"
+        },
+        {
+          "step": 9,
+          "name": "Achievement Check",
+          "description": "Check for achievement unlocks",
+          "actions": ["Evaluate achievement criteria", "Award achievements", "Update points"],
+          "responsible": "Gamification System",
+          "duration": "Instant"
+        }
+      ],
+      "triggers": ["Assignment creation", "Student submission", "Deadline reached"],
+      "participants": ["Student", "Instructor", "Universal Judge", "AI Tutor", "Grading System"],
+      "success_criteria": ["Submission graded", "Feedback provided", "Grades recorded"],
+      "failure_handling": ["Late penalty application", "Resubmission allowed", "Academic integrity review"]
+    },
+    "ai_tutor_feedback": {
+      "name": "AI Tutor Feedback Workflow",
+      "description": "AI-powered personalized feedback generation",
+      "steps": [
+        {
+          "step": 1,
+          "name": "Submission Analysis",
+          "description": "Analyze submission for code quality and correctness",
+          "actions": ["Parse code structure", "Identify patterns", "Check syntax"],
+          "responsible": "AI Tutor",
+          "duration": "Variable"
+        },
+        {
+          "step": 2,
+          "name": "Logic Evaluation",
+          "description": "Evaluate problem-solving approach and logic",
+          "actions": ["Analyze algorithm choice", "Check efficiency", "Validate approach"],
+          "responsible": "AI Tutor",
+          "duration": "Variable"
+        },
+        {
+          "step": 3,
+          "name": "Performance Assessment",
+          "description": "Assess code performance and optimization",
+          "actions": ["Measure runtime", "Check memory usage", "Identify bottlenecks"],
+          "responsible": "AI Tutor",
+          "duration": "Variable"
+        },
+        {
+          "step": 4,
+          "name": "Personalized Feedback Generation",
+          "description": "Generate personalized feedback based on analysis",
+          "actions": ["Identify strengths", "Highlight areas for improvement", "Suggest specific actions"],
+          "responsible": "AI Tutor",
+          "duration": "Variable"
+        },
+        {
+          "step": 5,
+          "name": "Improvement Suggestions",
+          "description": "Provide detailed improvement suggestions",
+          "actions": ["Suggest alternative approaches", "Recommend learning resources", "Provide code examples"],
+          "responsible": "AI Tutor",
+          "duration": "Variable"
+        },
+        {
+          "step": 6,
+          "name": "Resource Recommendation",
+          "description": "Recommend relevant learning resources",
+          "actions": ["Identify knowledge gaps", "Recommend tutorials", "Suggest practice problems"],
+          "responsible": "AI Tutor",
+          "duration": "Variable"
+        },
+        {
+          "step": 7,
+          "name": "Progress Tracking",
+          "description": "Track student progress over time",
+          "actions": ["Update progress metrics", "Identify trends", "Adjust difficulty"],
+          "responsible": "AI Tutor",
+          "duration": "Instant"
+        },
+        {
+          "step": 8,
+          "name": "Follow-up Planning",
+          "description": "Plan follow-up activities and check-ins",
+          "actions": ["Schedule follow-up", "Set reminders", "Create learning plan"],
+          "responsible": "AI Tutor",
+          "duration": "Instant"
+        }
+      ],
+      "triggers": ["Submission received", "Help requested", "Progress milestone"],
+      "participants": ["AI Tutor", "Student", "Universal Judge"],
+      "success_criteria": ["Feedback generated", "Resources recommended", "Progress updated"],
+      "failure_handling": ["Fallback to generic feedback", "Escalate to human instructor", "Schedule intervention"]
+    },
+    "registrar_automation": {
+      "name": "Registrar Automation Workflow",
+      "description": "Automated registrar processes for efficiency",
+      "steps": [
+        {
+          "step": 1,
+          "name": "Policy Configuration",
+          "description": "Configure and validate automation policies",
+          "actions": ["Load policy rules", "Validate configurations", "Check permissions"],
+          "responsible": "System Admin",
+          "duration": "Instant"
+        },
+        {
+          "step": 2,
+          "name": "Student Data Analysis",
+          "description": "Analyze student data for processing decisions",
+          "actions": ["Extract relevant data", "Apply business rules", "Identify patterns"],
+          "responsible": "Registrar Automation",
+          "duration": "Variable"
+        },
+        {
+          "step": 3,
+          "name": "Prerequisite Validation",
+          "description": "Validate student prerequisites for actions",
+          "actions": ["Check completed courses", "Verify requirements", "Validate standing"],
+          "responsible": "Registrar Automation",
+          "duration": "Instant"
+        },
+        {
+          "step": 4,
+          "name": "Enrollment Processing",
+          "description": "Process student enrollments automatically",
+          "actions": ["Process applications", "Assign sections", "Update records"],
+          "responsible": "Registrar Automation",
+          "duration": "Variable"
+        },
+        {
+          "step": 5,
+          "name": "Schedule Generation",
+          "description": "Generate optimal student schedules",
+          "actions": ["Optimize schedule", "Resolve conflicts", "Balance loads"],
+          "responsible": "Schedule Optimizer",
+          "duration": "Variable"
+        },
+        {
+          "step": 6,
+          "name": "Resource Allocation",
+          "description": "Allocate resources based on enrollment",
+          "actions": ["Assign classrooms", "Allocate instructors", "Manage capacity"],
+          "responsible": "Resource Manager",
+          "duration": "Variable"
+        },
+        {
+          "step": 7,
+          "name": "Intervention Detection",
+          "description": "Identify students requiring intervention",
+          "actions": ["Analyze performance", "Check attendance", "Identify risk factors"],
+          "responsible": "AI Analytics",
+          "duration": "Variable"
+        },
+        {
+          "step": 8,
+          "name": "Compliance Check",
+          "description": "Ensure regulatory compliance",
+          "actions": ["Validate regulations", "Check requirements", "Generate compliance reports"],
+          "responsible": "Compliance Engine",
+          "duration": "Instant"
+        },
+        {
+          "step": 9,
+          "name": "Report Generation",
+          "description": "Generate required reports and documentation",
+          "actions": ["Create reports", "Format data", "Distribute to stakeholders"],
+          "responsible": "Report Generator",
+          "duration": "Variable"
+        },
+        {
+          "step": 10,
+          "name": "Notification Distribution",
+          "description": "Distribute notifications to relevant parties",
+          "actions": ["Send notifications", "Track delivery", "Handle responses"],
+          "responsible": "Notification System",
+          "duration": "Instant"
+        }
+      ],
+      "triggers": ["Semester start", "Policy change", "Intervention needed", "Scheduled run"],
+      "participants": ["Registrar Automation", "System Admin", "AI Analytics", "Notification System"],
+      "success_criteria": ["Automation completed", "Compliance maintained", "Reports generated"],
+      "failure_handling": ["Manual escalation", "Fallback procedures", "Error notification"]
+    }
+  },
+  "validation_rules": {
+    "user_validation": {
+      "email_format": {
+        "rule": "email LIKE '%@%.%'",
+        "message": "Invalid email format"
+      },
+      "username_format": {
+        "rule": "username REGEXP '^[a-zA-Z0-9_]{3,50}$'",
+        "message": "Username must be 3-50 characters, alphanumeric and underscore only"
+      },
+      "password_strength": {
+        "rule": "password_hash IS NOT NULL",
+        "message": "Password is required"
+      },
+      "role_validation": {
+        "rule": "role IN ('Student', 'Faculty', 'Admin', 'HOD', 'Super_Admin')",
+        "message": "Invalid user role"
+      }
+    },
+    "enrollment_validation": {
+      "unique_enrollment": {
+        "rule": "UNIQUE(user_id, course_id, semester_id)",
+        "message": "Student already enrolled in this course for the semester"
+      },
+      "capacity_check": {
+        "rule": "current_enrollment < max_enrollment",
+        "message": "Course section is at full capacity"
+      },
+      "prerequisite_check": {
+        "rule": "prerequisites_satisfied(user_id, course_id)",
+        "message": "Course prerequisites not satisfied"
+      }
+    },
+    "grade_validation": {
+      "score_range": {
+        "rule": "score >= 0 AND score <= max_score",
+        "message": "Score must be between 0 and maximum score"
+      },
+      "percentage_calculation": {
+        "rule": "percentage = (score / max_score) * 100",
+        "message": "Percentage calculation error"
+      }
+    },
+    "submission_validation": {
+      "deadline_check": {
+        "rule": "submitted_at <= due_date OR late_submission_allowed",
+        "message": "Submission deadline has passed"
+      },
+      "file_size_limit": {
+        "rule": "file_size <= max_file_size",
+        "message": "File size exceeds limit"
+      }
+    }
+  },
+  "security_policies": {
+    "authentication": {
+      "password_policy": {
+        "min_length": 8,
+        "require_uppercase": true,
+        "require_lowercase": true,
+        "require_numbers": true,
+        "require_special_chars": true,
+        "max_age_days": 90,
+        "history_count": 5
+      },
+      "session_management": {
+        "timeout_minutes": 30,
+        "max_concurrent_sessions": 3,
+        "secure_cookies": true,
+        "renewal_threshold": 15
+      },
+      "mfa_requirements": {
+        "enabled_for_roles": ["Admin", "Super_Admin", "Faculty"],
+        "methods": ["TOTP", "SMS", "Email"],
+        "backup_codes": 10
+      }
+    },
+    "authorization": {
+      "rbac_model": "Role-Based Access Control",
+      "least_privilege": true,
+      "separation_of_duties": {
+        "grade_review": ["Faculty", "Admin"],
+        "enrollment_approval": ["Admin", "Registrar"],
+        "system_config": ["Admin", "Super_Admin"]
+      },
+      "data_access": {
+        "student_data": ["Student (own)", "Faculty (course)", "Admin", "Registrar"],
+        "grade_data": ["Student (own)", "Faculty (course)", "Admin"],
+        "system_logs": ["Admin", "Super_Admin"]
+      }
+    },
+    "data_protection": {
+      "encryption": {
+        "data_at_rest": "AES-256",
+        "data_in_transit": "TLS 1.3",
+        "password_hashing": "bcrypt",
+        "sensitive_fields": "AES-256"
+      },
+      "privacy": {
+        "ferpa_compliance": true,
+        "data_retention_years": 7,
+        "anonymization_after_retention": true,
+        "consent_management": true
+      },
+      "audit_logging": {
+        "log_all_access": true,
+        "log_modifications": true,
+        "log_authentication": true,
+        "retention_days": 365
+      }
+    }
+  },
+  "performance_optimization": {
+    "database_optimization": {
+      "indexing_strategy": {
+        "frequently_quoted_fields": ["user_id", "course_id", "email", "status"],
+        "composite_indexes": [
+          "user_id + course_id + semester_id",
+          "course_id + status",
+          "user_id + submission_date"
+        ],
+        "partial_indexes": [
+          "active_users: WHERE status = 'Active'",
+          "published_courses: WHERE status = 'Published'"
+        ]
+      },
+      "query_optimization": {
+        "connection_pooling": true,
+        "query_cache_size": "256MB",
+        "slow_query_threshold": "1000ms",
+        "prepared_statements": true
+      },
+      "partitioning": {
+        "large_tables": ["submissions", "grades", "analytics"],
+        "partition_strategy": "by_date",
+        "partition_column": "created_at"
+      }
+    },
+    "application_optimization": {
+      "caching": {
+        "redis_cache": true,
+        "cache_ttl": {
+          "user_sessions": 1800,
+          "course_data": 3600,
+          "static_content": 86400
+        },
+        "cache_invalidation": "tag-based"
+      },
+      "async_processing": {
+        "background_jobs": true,
+        "queue_system": "Redis/RabbitMQ",
+        "worker_processes": "CPU cores * 2",
+        "retry_policy": "exponential_backoff"
+      },
+      "load_balancing": {
+        "algorithm": "round_robin",
+        "health_checks": true,
+        "sticky_sessions": false,
+        "failover": true
+      }
+    }
+  },
+  "api_endpoints": {
+    "user_management": {
+      "authentication": {
+        "POST /auth/login": "User authentication",
+        "POST /auth/logout": "User logout",
+        "POST /auth/refresh": "Token refresh",
+        "POST /auth/mfa": "Multi-factor authentication"
+      },
+      "profile": {
+        "GET /users/profile": "Get user profile",
+        "PUT /users/profile": "Update user profile",
+        "POST /users/avatar": "Upload profile picture",
+        "PUT /users/preferences": "Update user preferences"
+      },
+      "administration": {
+        "GET /admin/users": "List all users",
+        "POST /admin/users": "Create new user",
+        "PUT /admin/users/:id": "Update user",
+        "DELETE /admin/users/:id": "Delete user",
+        "PUT /admin/users/:id/role": "Update user role",
+        "PUT /admin/users/:id/status": "Update user status"
+      }
+    },
+    "course_management": {
+      "courses": {
+        "GET /courses": "List available courses",
+        "GET /courses/:id": "Get course details",
+        "POST /courses": "Create new course",
+        "PUT /courses/:id": "Update course",
+        "DELETE /courses/:id": "Delete course",
+        "POST /courses/:id/enroll": "Enroll in course",
+        "DELETE /courses/:id/enroll": "Drop course"
+      },
+      "assignments": {
+        "GET /courses/:courseId/assignments": "List course assignments",
+        "GET /assignments/:id": "Get assignment details",
+        "POST /courses/:courseId/assignments": "Create assignment",
+        "PUT /assignments/:id": "Update assignment",
+        "DELETE /assignments/:id": "Delete assignment",
+        "POST /assignments/:id/submit": "Submit assignment"
+      },
+      "materials": {
+        "GET /courses/:courseId/materials": "List course materials",
+        "GET /materials/:id": "Get material details",
+        "POST /courses/:courseId/materials": "Add course material",
+        "PUT /materials/:id": "Update material",
+        "DELETE /materials/:id": "Delete material"
+      }
+    },
+    "assessment": {
+      "submissions": {
+        "GET /submissions": "List user submissions",
+        "GET /submissions/:id": "Get submission details",
+        "POST /submissions": "Create submission",
+        "PUT /submissions/:id": "Update submission",
+        "DELETE /submissions/:id": "Delete submission"
+      },
+      "grades": {
+        "GET /grades": "List user grades",
+        "GET /grades/:id": "Get grade details",
+        "POST /grades": "Create grade entry",
+        "PUT /grades/:id": "Update grade",
+        "DELETE /grades/:id": "Delete grade"
+      },
+      "exams": {
+        "GET /courses/:courseId/exams": "List course exams",
+        "GET /exams/:id": "Get exam details",
+        "POST /courses/:courseId/exams": "Create exam",
+        "PUT /exams/:id": "Update exam",
+        "DELETE /exams/:id": "Delete exam",
+        "POST /exams/:id/submit": "Submit exam"
+      }
+    },
+    "analytics": {
+      "performance": {
+        "GET /analytics/performance/:userId": "Get user performance metrics",
+        "GET /analytics/performance/:courseId": "Get course performance metrics",
+        "GET /analytics/performance/department/:deptId": "Get department performance"
+      },
+      "engagement": {
+        "GET /analytics/engagement/:userId": "Get user engagement metrics",
+        "GET /analytics/engagement/:courseId": "Get course engagement metrics",
+        "GET /analytics/engagement/system": "Get system engagement metrics"
+      },
+      "reports": {
+        "GET /reports": "List available reports",
+        "GET /reports/:id": "Get report details",
+        "POST /reports": "Generate new report",
+        "GET /reports/:id/download": "Download report file"
+      }
+    },
+    "notifications": {
+      "management": {
+        "GET /notifications": "List user notifications",
+        "GET /notifications/:id": "Get notification details",
+        "PUT /notifications/:id/read": "Mark notification as read",
+        "DELETE /notifications/:id": "Delete notification",
+        "POST /notifications": "Create notification"
+      },
+      "preferences": {
+        "GET /notifications/preferences": "Get notification preferences",
+        "PUT /notifications/preferences": "Update notification preferences"
+      }
+    }
+  },
+  "integration_points": {
+    "external_systems": {
+      "student_information_system": {
+        "type": "REST API",
+        "authentication": "OAuth 2.0",
+        "data_sync": "Real-time",
+        "endpoints": [
+          "Student enrollment data",
+          "Academic records",
+          "Financial information"
+        ]
+      },
+      "learning_management_system": {
+        "type": "LTI 1.3",
+        "authentication": "JWT",
+        "data_sync": "Batch",
+        "endpoints": [
+          "Course content",
+          "Grade sync",
+          "User authentication"
+        ]
+      },
+      "email_service": {
+        "type": "SMTP/API",
+        "authentication": "API Key",
+        "features": [
+          "Transactional emails",
+          "Bulk notifications",
+          "Template management"
+        ]
+      },
+      "payment_gateway": {
+        "type": "REST API",
+        "authentication": "API Key",
+        "features": [
+          "Tuition payments",
+          "Refund processing",
+          "Payment plans"
+        ]
+      }
+    },
+    "internal_services": {
+      "ai_tutor_service": {
+        "type": "gRPC",
+        "authentication": "mTLS",
+        "features": [
+          "Code analysis",
+          "Feedback generation",
+          "Learning recommendations"
+        ]
+      },
+      "universal_judge": {
+        "type": "REST API",
+        "authentication": "JWT",
+        "features": [
+          "Code execution",
+          "Test case evaluation",
+          "Performance measurement"
+        ]
+      },
+      "file_storage": {
+        "type": "S3-compatible",
+        "authentication": "Access Keys",
+        "features": [
+          "Assignment submissions",
+          "Course materials",
+          "User avatars"
+        ]
+      }
+    }
+  },
+  "monitoring_and_logging": {
+    "application_metrics": {
+      "performance": {
+        "response_time": "p95 < 2000ms",
+        "throughput": "> 1000 req/s",
+        "error_rate": "< 0.1%",
+        "availability": "> 99.9%"
+      },
+      "business_metrics": {
+        "active_users": "Daily/Monthly",
+        "course_completion_rate": "> 85%",
+        "user_satisfaction": "> 4.5/5",
+        "system_utilization": "< 80%"
+      }
+    },
+    "logging_strategy": {
+      "log_levels": ["ERROR", "WARN", "INFO", "DEBUG"],
+      "log_format": "JSON structured",
+      "log_retention": "90 days",
+      "log_aggregation": "ELK Stack",
+      "alerting": {
+        "critical": "Immediate",
+        "warning": "5 minutes",
+        "info": "Hourly"
+      }
+    },
+    "health_checks": {
+      "database": "Connection and query performance",
+      "cache": "Redis connectivity and performance",
+      "external_apis": "Endpoint availability and response time",
+      "disk_space": "Available storage monitoring",
+      "memory_usage": "RAM utilization tracking"
+    }
+  },
+  "deployment_configuration": {
+    "environments": {
+      "development": {
+        "database": "PostgreSQL local",
+        "cache": "Redis local",
+        "file_storage": "Local filesystem",
+        "logging": "Console output"
+      },
+      "staging": {
+        "database": "PostgreSQL cloud",
+        "cache": "Redis cloud",
+        "file_storage": "S3 bucket",
+        "logging": "Cloud logging"
+      },
+      "production": {
+        "database": "PostgreSQL cluster",
+        "cache": "Redis cluster",
+        "file_storage": "S3 with CDN",
+        "logging": "Centralized logging"
+      }
+    },
+    "scaling_strategy": {
+      "horizontal_scaling": true,
+      "auto_scaling": {
+        "min_instances": 2,
+        "max_instances": 20,
+        "cpu_threshold": 70,
+        "memory_threshold": 80
+      },
+      "load_balancer": "Application load balancer",
+      "database": "Read replicas for read operations"
+    },
+    "backup_strategy": {
+      "database": "Daily full backups + hourly incremental",
+      "retention": "30 days daily, 90 days weekly",
+      "file_storage": "Cross-region replication",
+      "disaster_recovery": "RTO < 4 hours, RPO < 1 hour"
+    }
+  }
+}
